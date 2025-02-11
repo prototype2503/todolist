@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    echo 'error';
+    exit;
+}
 
 if(isset($_POST['id'])){
 	require '../db_conn.php';

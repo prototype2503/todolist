@@ -1,4 +1,5 @@
 <?php
+session_start();
 require '../user_conn.php';
 
 if(isset($_POST['register'])){

@@ -43,7 +43,7 @@ require 'db_conn.php';
 							<button type="submit">追加 &nbsp; <span>&#43;</span></button>
 						<?php }else{?>
 							<input type="text" name="title" placeholder="タスク" />
-							<button type="submit">追加 &nbsp; <span>&#43;</span></button>
+							<button type="submit">追加</button>
 						<?php }?>
 					</form>
 				</div>
@@ -97,7 +97,6 @@ require 'db_conn.php';
 
 				<?php foreach($allresult as $todo){?>
 					<div class="todo-item">
-						<span id = "<?php echo $todo['id']; ?>" class="remove-to-do">x</span>
 						<?php if($todo['checked']){?>
 							<input type="checkbox" 
 							data-todo-id = "<?php echo $todo['id']; ?>"

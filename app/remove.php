@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: ../signin.php?mess=error");
+    exit();
+}
 
 if(isset($_POST['id'])){
 	require '../db_conn.php';
@@ -24,3 +29,5 @@ if(isset($_POST['id'])){
 	header("Location:../index.php?mess=error" );
 
 }
+
+?>

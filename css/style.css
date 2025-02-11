@@ -1,11 +1,8 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
-
-
-
 body {
 display: flex;
-background: #4c4c4c;
+background: #656565;
 justify-content: center;
 align-items: center;
 min-height: 100vh;
@@ -96,7 +93,7 @@ height: 40px;
 margin: 0px auto;
 border: none;
 outline: none;
-background: #0088FF;
+background: #c70707;
 color: #fff;
 font-family: sans-serif;
 font-size: 16px;
@@ -109,13 +106,13 @@ box-shadow: 0 2px 2px 0 #ccc, 0 2px 3px 0 #ccc;
 opacity: 0.7;
 }
 
-.add-section button span {
-border: 1px solid #fff;
+/* .add-section button span {
+border: 1px solid #2e1919;
 border-radius: 50%;
 display: inline-block;
 width: 18px;
-height: 18px;
-}
+height: 20px;
+} */
 
 #errorMes {
 display: block;
