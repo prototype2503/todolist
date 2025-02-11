@@ -9,23 +9,27 @@ if(isset($_POST['id'])){
 		echo 'error';
 
 	}else{
-		$todos = $conn ->prepare("SELECT id, checked FROM todos WHERE id=?");
-		$todos -> execute([$id]);
+		$todos = $conn->prepare("SELECT id, checked FROM todos WHERE id = ?");
+		$todos->execute([$id]);
+		$todo = $todos->fetch(PDO::FETCH_ASSOC);
 		
-		$todo = $todos->fetch();
-		$uId = $todo['id'];
-		$checked = $todo['checked'];
-
-		$uChecked = $checked ? 0 : 1 ;
-
-		$res = $conn -> query("UPDATE todos SET checked=$uChecked WHERE id=$uId");
-
-		if($res){
-			echo $checked;
-		}else{
+		if ($todo) {
+			$uId = $todo['id'];
+			$checked = $todo['checked'];
+			$uChecked = $checked ? 0 : 1;
+		
+			$stmt = $conn->prepare("UPDATE todos SET checked = ? WHERE id = ?");
+			$res = $stmt->execute([$uChecked, $uId]);
+		
+			if($res){
+				echo $checked;
+			} else {
+				echo "error";
+			}
+		} else {
 			echo "error";
 		}
-
+		
 		$conn = null;
 		exit();
 	}
